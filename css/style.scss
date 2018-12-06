@@ -1,0 +1,1156 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400|Poppins:400|Lobster|Quicksand:200,100,400|Roboto|Raleway:200,100,400|Source Sans Pro:200,100,400');
+
+$colors: (
+  button: #89c003,
+	background: #FFFFFF,
+	headings: #444444,
+  primefont: #333333,
+);
+
+
+@function color($color-name) {
+	@return map-get($colors, $color-name);
+}
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 992px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+
+@function color($color-name) {
+	@return map-get($colors, $color-name);
+}
+
+// Small devices
+@mixin sm {
+   @media (min-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md {
+   @media (min-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg {
+   @media (min-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl {
+   @media (min-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
+// super small
+@mixin ss-m {
+   @media (max-width: #{$screen-ss-min}) {
+       @content;
+   }
+}
+// Small devices
+@mixin sm-m {
+   @media (max-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
+
+// Medium devices
+@mixin md-m {
+   @media (max-width: #{$screen-md-min}) {
+       @content;
+   }
+}
+
+// Large devices
+@mixin lg-m {
+   @media (max-width: #{$screen-lg-min}) {
+       @content;
+   }
+}
+
+// Extra large devices
+@mixin xl-m {
+   @media (max-width: #{$screen-xl-min}) {
+       @content;
+   }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  height: 100%;
+  background: color(background) !important;
+}
+
+header {
+	padding: 0 100px;
+	width: 100%;
+	height: 60px;
+	box-sizing: border-box;
+	background: rgba(0,0,0,.4);
+	position: fixed;
+	z-index: 1;
+  top: 0;
+  
+  .logo {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 10px;
+    font-size: 2em;
+    font-family: 'Poppins';
+
+
+    .food {
+      border: 1px solid color(background);
+        background: #f35b5b;
+        color: color(background);
+        padding: 1px;
+        height: 100%;
+        width: auto;
+    }
+
+    .chef {
+      border: 1px solid color(background);
+      background:rgba(0,0,0,.4);
+      color: color(background);
+      padding: 1px;
+      height: 100%;
+      width: auto;
+    }
+  }
+
+	ul {
+		position: relative;
+    height: 60px;
+    top: -64px;
+		margin: 0;
+		padding: 0;
+		display: flex;
+    float: right;
+
+    :focus{
+      color: #f35b5b !important;
+    }
+    
+
+		li {
+    list-style: none;
+
+		:hover {
+			color: #f35b5b;
+			transition: ease-in-out all .3s; 
+    -moz-transition: ease-in-out all .3s;
+    -webkit-transition: ease-in-out all .3s
+  }
+
+		a {
+		position: relative;
+		display: block;
+		padding: 10px 20px;
+		margin: 20px 0;
+		text-decoration: none !important;
+		color: rgba(255,255,255,.5);
+		font-weight: 500;
+		font-size: 13px;
+		font-family: 'Roboto';
+    text-transform: uppercase;
+		}
+	}
+	}
+
+		.toggle {
+
+      i {
+        padding: 5px;
+      }
+
+		display: none;
+		position: absolute;
+		font-size: 1.5em;
+		right: 0;
+		top: 10px;
+    width: auto;
+    text-align: center;
+    height: auto;
+    font-weight: 200;
+		cursor: pointer;
+    margin-right: 20px;
+    background: transparent;
+    color: color(background);
+    border: 1px solid color(background);
+
+		.fa {
+			color: color(background);
+			font-weight: normal;
+		}
+	}
+}
+
+@include lg-m {
+	header {
+	padding: 0 0;
+
+	.toggle {
+    display: block;
+    height: auto;
+	}
+	
+	ul.active {
+	 	display: block;
+	 	transition: ease-in-out all .5s; 
+    -moz-transition: ease-in-out all .5s;
+    -webkit-transition: ease-in-out all .5s;
+		-o-transition: ease-in-out all .5s;
+	 	transition: .8s;
+	 	position: relative;
+	 	padding-top: 62px;
+	 	z-index: -1;
+	 }
+	
+
+ul {
+  width: 100%;
+	top: -58px;
+	display: none;
+
+
+	li a {
+		margin: 0;
+		display: block;
+		text-align: center;
+		background: rgba(0,0,0,.4);
+		color: color(background);
+		text-align: right;
+    height: 40px;
+    font-weight: 600;
+		padding-top: 20px;
+	}
+}
+}
+}
+
+#banner {
+  .one {
+    display: block;
+    position: relative;
+    img {
+      width: 100%;
+      filter: brightness(70%);
+    }
+    // position the banner text
+    .banT {
+      position: absolute;
+      margin-top: -160px;
+      width: 500px;
+      padding: 50px;
+      color: color(background);
+      font-family: 'Raleway';
+    }
+
+    .banT1 {
+      font-weight: 400;
+      font-size: 1.3em;
+    }
+
+    .banT2 {
+      font-weight: 200;
+      font-size: .9em
+    }
+
+    button {
+      padding: 5px;
+      background: color(button);
+      border: none;
+      color: color(background);
+      font-size: .7em;
+      font-family: inherit;
+      font-size: 200;
+      padding-left: 8px;
+      padding-right: 8px;
+      cursor: pointer;
+    }
+  }
+
+  .two, .three {
+    .banT {
+      position: absolute;
+      position: relative;
+      margin-top: -150px;
+      width: auto;
+      padding: 40px;
+      color: color(background);
+      font-family: 'Raleway';
+    }
+
+    .banT1 {
+      font-weight: 400;
+      font-size: 1.3em;
+    }
+
+    img {
+      width: 100%;
+      filter: brightness(80%);
+    }
+  }
+}
+
+// About section
+#about {
+  width: 100% !important;
+  text-align: center;
+  margin: 0 auto;
+
+  h1 {
+    margin-top: 40px;
+    font-family: 'Raleway';
+    margin-bottom: 0;
+    font-weight: bold;
+  }
+
+  h3 {
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 1.4em;
+    color: color(button);
+  }
+
+  p {
+    font-family: 'Poppins';
+    font-size: .7em;
+  }
+
+  .aboutBoxes {
+
+    .one, .three, .five {
+      margin-bottom: 5px;
+      padding: 35px;
+      background: #2dde98;
+
+      h3 {
+          color: black;
+          margin-bottom: 20px;
+      }
+    
+     p {
+       color: color(background);
+       font-size: .8em;
+       font-family: 'Poppins';
+     }
+    }
+
+    .two, .four, .six {
+      margin-bottom: 5px;
+      img {
+        width: 100%;
+      }
+    }
+
+    .three {
+      background: #03a9f5 !important;
+    }
+
+    .five {
+      background: #ff9801;
+    }
+  }
+}
+
+// services
+.servicebod {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  font-family: 'Poppins';
+
+  h1 {
+    font-weight: 400;
+    font-family: 'Raleway';
+    font-weight: bold;
+  }
+  
+ .glypharea {
+   margin: 0 auto;
+   
+  .glyphcol {
+     display: flex;
+   flex-direction: row;
+
+   .glyph {
+     flex-shrink: 1;
+     margin: 10px;
+   }
+
+   .glyphT {
+     flex-grow: 5;
+     margin: 12px;
+     text-align: left !important;
+     font-size: .8em;
+   }
+
+    .glyphicon {
+    color: #8abf00;
+    font-size: 20px;
+  }
+  }
+  
+ }
+  
+  .chefarea {
+   display: flex;
+   flex-direction: row;
+   margin-top: 10px;
+
+    .chef {
+      flex: 1;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .food {
+      flex: 1;
+
+      img {
+        width: 100%;
+      }
+
+      .food1 {
+        padding-bottom: 10px
+      }
+
+      .food2 {
+        padding-top:20px;
+      }
+    }
+  }
+}
+
+// team members
+.compT {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  font-family: 'Poppins';
+
+  h1 {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    font-family: 'Raleway';
+    font-weight: bold;
+  }
+
+  .t {
+    img {
+      width: 80%;
+      border-left: 5px solid #f35453;
+      border-top: 5px solid #f35453;
+      border-right: 5px solid #dedede;
+      border-bottom: 5px solid #dedede; 
+    }
+
+    h4 {
+      font-weight: bold;
+
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// food section
+h1 {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-family: 'Raleway';
+  font-weight: bold;
+}
+.our-food {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center !important;
+
+  .pic {
+    margin: 2.5px;
+    position: relative;
+
+    img {
+    width: 100%;
+    // object-fit: cover;
+    filter: brightness(76%);
+  }
+
+  .caption {
+    position: absolute;
+      margin-top: -230px;
+      width: auto;
+      padding: 50px;
+      color: color(background);
+      font-family: 'Raleway';
+      font-size: 1.2em;
+      font-weight:500;
+
+    span {
+      font-weight: 600 !important;
+    }
+  }
+  }
+}
+
+// TESTIMONIALS SECTION
+.testimonial {
+  margin-top: 30px;
+  background: linear-gradient(rgba(0,0,0,0.3), 
+    rgba(0,0,0,.3)), 
+  url(../images/stats.jpg);
+  background-repeat: no-repeat 50% 50%;
+  background-size:cover;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  color: color(background);
+  padding: 20px;
+  line-height: 1.9;
+
+  h2 {
+    font-family: 'Raleway';
+    margin-top: 30px;
+  }
+
+  .maintes {
+    display: flex;
+    flex-direction: row;
+       .one {
+         font-family: 'Poppins';
+           font-size: .8em;
+           
+       }
+  }
+}
+
+// contact section
+.cont {
+  margin-top: 20px;
+ h1 {
+      text-align: center;
+      font-family: 'Raleway';
+      font-weight: bold;
+    }
+
+  .contact {
+    .cont1 {
+      background: color(button);
+      text-align: left;
+      padding-left: 50px;
+      font-family: 'Poppins';
+      padding-bottom: 40px;
+  
+      h3 {
+        color: color(background);
+        padding-top: 40px;
+        padding-bottom: 30px;
+      }
+  
+      .col1 {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+  
+        .fawe {
+          .fa {
+            font-size: 1.3em;
+            color: color(background);
+          }
+        }
+  
+        .ft {
+          padding-left: 30px;
+          font-size: 1em;
+  
+          .ft1 {
+            font-weight: bold;
+            color: black;
+            font-size: 1.1em;
+          }
+  
+          .ft2 {
+            color: color(background);
+          }
+        }
+      }
+    }
+  
+    .cont2 {
+      background: linear-gradient(rgba(0,0,0,0.3), 
+      rgba(0,0,0,.3)), 
+    url(../images/contact.jpg);
+    background-repeat: no-repeat 50% 50%;
+    background-size: contain;
+    width: 100%;
+  
+    table {
+      width: 100%;
+      background: transparent;
+  
+      td, th {
+      padding: 8px;
+      }
+  
+      input[type=text] {
+        background: transparent;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 5px 0;
+        display: inline-block;
+        border: 1px solid color(background);
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+  
+    textarea {
+      background: transparent;
+      width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid color(background);
+        border-radius: 4px;
+        box-sizing: border-box;
+        height: 200px;
+    }
+
+    textarea:focus, input:focus {
+      color: color(background);
+  }
+  
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:color(background);
+    opacity: 1; /* Firefox */
+}
+
+    .form-action-buttons {
+      float: right;
+  
+      input {
+        background: color(button);
+        border: 1px solid color(button);
+        width: 100px;
+        height: 30px;
+        color: color(background);
+        font-weight: bold;
+      }
+    }
+    }
+    }
+  }
+}
+
+// map section
+.map {
+  #map {
+    height: 400px;
+  }
+}
+
+// subscribe
+.sub {
+  background: #f45a5a;
+  font-family: 'Poppins';
+  width: 100%;
+
+  .sub1 {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: color(background);
+  }
+
+  .sub2 {
+    width: 100%;
+    display: inline-block;
+    padding: 20px;
+
+    .mainsub {
+      margin: 0 auto;
+      width: 100%;
+      
+      input {
+      width: 72%;
+      height: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      padding: 5px;
+      background: rgba(255,255,255,.2);
+    }
+
+    ::placeholder {
+      color: rgba(255,255,255,.8);
+      font-size: 1.1em;
+  }
+
+    input:focus {
+      color: color(background);
+      font-size: 1.1em;
+    }
+
+    button {
+      height: 40px;
+      width: 25%;
+      font-weight: bold;
+      font-size: 1em;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      background: color(button);
+      color: color(background);
+    }
+    }
+  }
+}
+
+.footels {
+  padding: 20px;
+  background: #292929;
+  color: color(background);
+  font-size: 1.1em;
+  font-family: 'Arial';
+
+  .social {
+    display: flex;
+    flex-direction: row;
+
+    .fol, .socials {
+      margin: 10px;
+    }
+
+    .socials {
+      letter-spacing: 1em;
+    }
+  }
+
+  .credits {
+    padding: 10px;
+    text-align: center;
+
+    span {
+      color: #f7d3d3;
+    }
+  }
+}
+
+
+
+// STYLING FOR TABLET SIZE
+@include md {
+  // banner section
+#banner{
+  .one, .two, .three {
+    .banT {
+  margin-top: -300px;
+ }
+
+ .banT1 {
+   font-size: 1.9em;
+ }
+
+ .banT2 {
+   font-size: 1.2em;
+ }
+
+ button {
+  padding: 5px;
+  background: color(button);
+  border: none;
+  font-size: 1em;
+  padding-left: 8px;
+  padding-right: 8px;
+ }
+  }
+}
+
+// about section
+#about{
+  width: 70%;
+
+  h3 {
+    font-size: 1.7em;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+
+  .aboutBoxes {
+
+    .one, .three, .five {
+      
+      
+
+      h3 {
+          color: black;
+          margin-top: 15px;
+      }
+    
+     p {
+       font-size: 1.2em;
+       padding: 45px;
+     }
+    }
+}
+}
+
+// SERVICES SECTION
+.glypharea {
+  margin: 0 auto;
+  
+ .glyphcol {
+
+  .glyph {
+    flex-shrink: 2;
+  }
+
+  .glyphT {
+    flex-grow: 6;
+    font-size: 1.3em;
+  }
+
+   .glyphicon {
+   font-size: 26px;
+ }
+ }
+
+ // team members
+ h3{
+   font-size: 1.7em;
+ }
+.compT {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  font-family: 'poppins';
+
+  h3 {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    font-size: 1.7em;
+  }
+
+  .t {
+    img {
+      width: 70%; 
+    }
+
+    h4 {
+      font-weight: bold;
+
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+// food section
+.our-food {
+  margin: 0 auto;
+ width: 80%;
+
+  .pic {
+    img {
+    width: 100%;
+  }
+
+  .caption {
+      margin-top: -600px !important;
+      font-size: 2.2em !important;
+      font-weight:600;
+      }
+  }
+  }
+ }
+}
+
+// FOR LARGER SCREEN SIZES
+
+@include xl {
+   // banner section
+#banner{
+  .one, .two, .three {
+    .banT {
+  margin-top: -450px;
+  padding-left: 100px;
+  padding-right: 30px
+ }
+
+ .banT1 {
+   font-size: 2.5em;
+ }
+
+ .banT2 {
+   font-size: 1.5em;
+ }
+
+ button {
+  padding: 5px;
+  background: color(button);
+  border: 1px solid color(button);
+  font-size: 1.1em;
+  padding: 10px;
+ }
+  }
+}
+
+// about section
+#about{
+
+  h3 {
+    font-size: 1.4em;
+  }
+
+  p {
+    font-size: .8em;
+  }
+  .aboutBoxes {
+    margin: 0 auto;
+    width: 75%;
+      display: grid;
+      grid-gap: 3px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+
+    .one, .two, .three, .four, .five, .six {
+      margin-bottom: 0 !important;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      h3 {
+          color: black;
+          margin-top: 15px;
+      }
+    
+     p {
+       font-size: .8em;
+       padding: 10px;
+     }
+    }
+}
+}
+
+// SERVICES SECTION
+.servicegrids {
+  margin: 0 auto;
+  width: 75%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .glypharea {
+     padding: 30px;
+     margin-top: 30px;
+
+     .glyphT {
+      flex-grow: 6;
+      font-size: 1em !important;
+      padding: 10px;
+    }
+  
+     .glyphicon {
+       margin-top: 20px;
+     font-size: 1.5em !important;
+   }
+  }
+
+  .chefarea{
+    padding: 40px;
+  }
+}
+
+ // team members
+ h3{
+   font-size: 1.7em !important;
+ }
+.compT {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  font-family: 'poppins';
+
+  h3 {
+    margin-top: 70px;
+    margin-bottom: 20px;
+    font-size: 1.7em;
+  }
+
+  .teamgrid {
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 200px);
+    grid-gap: 5px;
+
+    .t {
+      margin: 0 !important;
+      padding: 0 !important;
+    img {
+      width: 100%; 
+    }
+
+    h4 {
+      font-weight: bold;
+
+    }
+
+    p {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  }
+
+  
+}
+
+// food section
+.our-food {
+  margin: 0;
+  padding: 0;
+ width: 100%;
+ display: grid;
+ grid-gap: 3px;
+ justify-content: center;
+
+.row1, .row2, .row3 {
+  display: flex;
+  flex-direction: row;
+
+  .pic {
+    img {
+      position: relative;
+    width: 100%;
+.caption {
+    position: absolute;
+      margin-top: -600px !important;
+      font-size: 1em !important;
+      font-weight:400;
+      }
+  }
+  }
+}
+}
+
+// testimonials
+.testimonial {
+  margin-top: 30px;
+  height: auto;
+  text-align: center;
+  color: color(background);
+  padding: 30px;
+  line-height: 1.9;
+
+  h2 {
+    font-family: 'Raleway';
+    margin-top: 30px;
+    // padding-bottom: 25px;
+  }
+
+  .maintes {
+    padding: 0 100px;
+
+    .one {
+    padding: 0 30px;
+    font-size: .9em;
+  }
+  .one::before {
+    content: "\201D"; 
+    right:0; 
+    bottom:0;
+    font-size: 100px;
+    line-height: 1.214;
+  }
+  }
+}
+
+// contact
+.contact {
+  display: flex;
+  flex-direction: row;
+
+  .cont1, .cont2 {
+    flex: 1;
+    padding-top: 60px;
+
+    h3 {
+      padding-left: 130px
+    }
+    
+    .grid1 {
+      padding-left: 130px;
+    }
+  }
+
+  .cont2 {
+    table {
+      width: 70% !important;
+    }
+  }
+}
+
+// SUBSCRIBE
+.sub {
+  display: flex;
+  flex-direction: row;
+  padding: 50px;
+
+  .sub1 {
+    flex: 80%;
+    font-size: 1.2em;
+    padding-top: 30px;
+  } 
+  
+  .mainsub {
+    flex: 20%;
+  }
+}
+
+// FOOTER SECTION
+.footels {
+  display: flex;
+  flex-direction: row;
+
+  .social {
+    flex: 30%;
+  }
+
+  .credits {
+    flex: 70%;
+  }
+}
+}
+
